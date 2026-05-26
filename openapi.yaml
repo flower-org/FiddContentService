@@ -5,7 +5,7 @@ info:
   description: REST wrapper over FiddContentService
 
 servers:
-  - url: http://localhost:8080
+  - url: http://localhost:4199
 
 tags:
   - name: messages
@@ -30,7 +30,7 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 
           
-  /{fiddId}/messages/tail:
+  /api/v1/{fiddId}/messages/tail:
     get:
       operationId: getMessageNumbersTail
       tags: [messages]
@@ -58,7 +58,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /{fiddId}/messages/{messageNumber}/before:
+  /api/v1/{fiddId}/messages/{messageNumber}/before:
     get:
       operationId: getMessageNumbersBefore
       tags: [messages]
@@ -94,7 +94,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /{fiddId}/messages/range:
+  /api/v1/{fiddId}/messages/range:
     get:
       operationId: getMessageNumbersBetween
       tags: [messages]
@@ -148,7 +148,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /{fiddId}/messages/{messageNumber}/metadata:
+  /api/v1/{fiddId}/messages/{messageNumber}/metadata:
     get:
       operationId: getFiddFileMetadata
       tags: [messages]
@@ -168,7 +168,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /{fiddId}/messages/{messageNumber}/logical-files:
+  /api/v1/{fiddId}/messages/{messageNumber}/logical-files:
     get:
       operationId: getLogicalFileInfos
       tags: [messages]
@@ -190,7 +190,7 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
-  /{fiddId}/{messageNumber}/{logicalFilePath}:
+  /fidds/v1/{fiddId}/{messageNumber}/{logicalFilePath}:
     get:
       operationId: readLogicalFile
       tags: [download]
