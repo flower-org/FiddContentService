@@ -3,15 +3,8 @@ description: Describes a logical file within a message
 required:
   - metadata
   - section
-  - fileOffset
 properties:
   metadata:
     $ref: './LogicalFileMetadata.yaml'
   section:
     $ref: './FiddKeySection.yaml'
-  fileOffset:
-    type: integer
-    format: int64
-    description: File offset in the Fidd file
-
-
