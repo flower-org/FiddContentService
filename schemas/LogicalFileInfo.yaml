@@ -2,9 +2,6 @@ type: object
 description: Describes a logical file within a message
 required:
   - metadata
-  - section
 properties:
   metadata:
     $ref: './LogicalFileMetadata.yaml'
-  section:
-    $ref: './FiddKeySection.yaml'
