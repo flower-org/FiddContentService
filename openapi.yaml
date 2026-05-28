@@ -184,7 +184,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: './schemas/LogicalFileInfo.yaml'
+                  $ref: './schemas/LogicalFileMetadata.yaml'
         '404':
           $ref: '#/components/responses/NotFoundError'
         '500':

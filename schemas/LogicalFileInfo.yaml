@@ -1,7 +1,0 @@
-type: object
-description: Describes a logical file within a message
-required:
-  - metadata
-properties:
-  metadata:
-    $ref: './LogicalFileMetadata.yaml'
