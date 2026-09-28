@@ -205,7 +205,14 @@ paths:
               schema:
                 $ref: './schemas/MessageInfo.yaml'
         '404':
-          $ref: '#/components/responses/NotFoundError'
+          description: |
+            No such Fidd instance or message (the message directory itself does not exist).
+            Not returned when the message exists but metadata or logicalFiles are individually absent -
+            in that case they are simply null in the 200 response.
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/Error.yaml'
         '500':
           $ref: '#/components/responses/InternalServerError'
 
