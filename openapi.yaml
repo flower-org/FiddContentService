@@ -189,6 +189,33 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 
+  /api/v1/{fiddId}/messages/{messageNumber}/info:
+    get:
+      operationId: getMessageInfo
+      tags: [messages]
+      summary: Get combined Fidd file metadata and logical files for a message in one call
+      parameters:
+        - $ref: '#/components/parameters/FiddId'
+        - $ref: '#/components/parameters/MessageNumber'
+      responses:
+        '200':
+          description: Combined metadata and logical files
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/CombinedMetadata.yaml'
+        '404':
+          description: |
+            No such Fidd instance or message (the message directory itself does not exist).
+            Not returned when the message exists but metadata or logicalFiles are individually absent -
+            in that case they are simply null in the 200 response.
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/Error.yaml'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
 components:
   parameters:
     FiddId:
